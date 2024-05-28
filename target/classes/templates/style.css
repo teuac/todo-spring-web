@@ -1,0 +1,27 @@
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 -15px; /* Para compensar o padding dos cartões */
+}
+
+.card {
+    width: calc(25% - 30px); /* 25% de largura menos a margem negativa */
+    margin: 15px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+/* Ajustar o estilo conforme necessário */
+h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    color: #666;
+}

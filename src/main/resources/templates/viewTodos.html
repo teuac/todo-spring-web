@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Suas Tarefas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        .card-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            width: 300px;
+        }
+
+        .card h2 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        .card p {
+            color: #666;
+        }
+
+        .completed_and_priority {
+            color: #999;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .btn-floating {
+            margin-top: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<h1>Suas Tarefas</h1>
+
+<h3><a href="/createTodo" class="waves-effect waves-light btn" ><i class="material-icons left">add_circle</i>Nova tarefa</a>
+    <a href="/todos" class="waves-effect waves-light btn" ><i class="material-icons left"></i>Todas</a>
+    <a href="/todosFalse"  class="waves-effect waves-light btn" ><i class="material-icons left"></i>A fazer</a>
+    <a href="/todosTrue" class="waves-effect waves-light btn" ><i class="material-icons left"></i>Completas</a></h3>
+
+
+<div class="card-list">
+    <div th:each="todo : ${todos}" class="card">
+        <h2 th:text="${todo.title}"></h2>
+        <p th:text="${todo.description}"></p>
+        <p class="completed_and_priority">Prioridade: <span th:text="${todo.priority}"></span></p>
+        <p class="completed_and_priority">Completo: <span th:text="${todo.completed ? 'Sim' : 'Não'}"></span></p>
+        <a class="btn-floating btn-small waves-effect waves-light red" th:href="${(#mvc.url('TC#deleteTodo').arg(0, todo.id)).build()}" ><i class="material-icons">delete</i></a>
+        <a class="btn-floating btn-small waves-effect waves-light red" th:href="${(#mvc.url('TC#updateTodo').arg(0, todo.id)).build()}" ><i class="material-icons">update</i></a>
+
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

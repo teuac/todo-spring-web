@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Curso</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+</head>
+<body>
+<h1>Cadastro de Curso</h1>
+<h3><a href="/todos"  class="waves-effect waves-light btn" ><i class="material-icons left">dehaze</i>Ver tarefas</a></h3>
+
+<form class="container" method ="post">
+
+    <div class="input-field col s2">
+        Titulo: <input type="text" name="title">
+    </div>
+
+    <div class="input-field col s6">
+        Descrição:  <input type="text" name="description">
+    </div>
+
+    <label>Browser Select</label>
+    <select class="browser-default" name = "priority">
+        <option value="" disabled selected>Choose your option</option>
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+    </select>
+
+
+    <div class="input-field col s2">
+        Completo:  <input type="text" name="completed">
+    </div>
+
+
+
+    <button  class="waves-effect waves-light btn" type="submit">salvar</button>
+
+</form>
+
+
+
+</body>
